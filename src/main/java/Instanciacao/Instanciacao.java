@@ -39,7 +39,7 @@ public class Instanciacao extends HttpServlet {
 			Postagem post2 = new Postagem(null, sdf.parse("19/03/2016"), "A festa estava muito boa ontem!", user1);
 			Postagem post3 = new Postagem(null, sdf.parse("18/03/2016"), "Partiu festa!", user2);
 			Postagem post4 = new Postagem(null, sdf.parse("20/03/2016"), "Partiu viagem!", user2);
-			Postagem post5 = new Postagem(null, sdf.parse("20/03/2016"), "Almoço estava bom!", user3);
+			Postagem post5 = new Postagem(null, sdf.parse("20/03/2016"), "AlmoÃ§o estava bom!", user3);
 			Postagem post6 = new Postagem(null, sdf.parse("22/03/2016"), "A carne estava crua!", user3);
 			Postagem post7 = new Postagem(null, sdf.parse("21/03/2016"), "Partiu churrasco!", user4);
 			Postagem post8 = new Postagem(null, sdf.parse("22/03/2016"), "Terminei o namoro!", user4);
