@@ -38,9 +38,9 @@ public class Circulo implements Serializable {
 		this.codCirculo = codCirculo;
 		this.dataCriacao = dataCriacao;
 		this.seguidor = seguidor;
-		seguidor.addSeguidor(this);
+		seguidor.addAmigo(this);
 		this.amigo = amigo;
-		amigo.addAmigo(this);
+		amigo.addSeguidor(this);
 	}
 
 	public Integer getCodCirculo() {

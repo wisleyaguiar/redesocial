@@ -37,10 +37,10 @@ public class Usuario implements Serializable {
 	@OneToMany(mappedBy="autor")
 	private List<Postagem> postagens;
 	
-	@OneToMany(mappedBy="amigo")
+	@OneToMany(mappedBy="seguidor")
 	private List<Circulo> amigos;
 	
-	@OneToMany(mappedBy="seguidor")
+	@OneToMany(mappedBy="amigo")
 	private List<Circulo> seguidores;
 	
 	// Construtor vazio
@@ -194,12 +194,12 @@ public class Usuario implements Serializable {
 	
 	public void addAmigo(Circulo x) {
 		this.amigos.add(x);
-		x.setAmigo(this);
+		x.setSeguidor(this);
 	}
 	
 	public void addSeguidor(Circulo x) {
 		this.seguidores.add(x);
-		x.setSeguidor(this);
+		x.setAmigo(this);
 	}
 	
 	public void removeAmigo(Circulo x) {
