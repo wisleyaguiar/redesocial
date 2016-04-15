@@ -2,9 +2,9 @@ package servico;
 
 import java.util.List;
 
-import dao.FotoDao;
 import dao.DaoFactory;
-import dao.impl.EM;
+import dao.FotoDao;
+import dao.Transaction;
 import dominio.Foto;
 
 public class FotoServico {
@@ -16,15 +16,31 @@ public class FotoServico {
 	}
 	
 	public void inserirAtualizar(Foto x) {
-		EM.getLocalEm().getTransaction().begin();
-		dao.inserirAtualizar(x);
-		EM.getLocalEm().getTransaction().commit();
+		try {
+			Transaction.begin();
+			dao.inserirAtualizar(x);
+			Transaction.commit();
+		}
+		catch (RuntimeException e) {
+			if(Transaction.isActive()) {
+				Transaction.rollback();
+			}
+			System.out.println("Erro: " + e.getMessage());
+		}
 	}
 	
 	public void excluir(Foto x) {
-		EM.getLocalEm().getTransaction().begin();
-		dao.excluir(x);
-		EM.getLocalEm().getTransaction().commit();
+		try {
+			Transaction.begin();
+			dao.excluir(x);
+			Transaction.commit();
+		}
+		catch (RuntimeException e) {
+			if(Transaction.isActive()) {
+				Transaction.rollback();
+			}
+			System.out.println("Erro: " + e.getMessage());
+		}
 	}
 	
 	public Foto buscar(int cod) {
