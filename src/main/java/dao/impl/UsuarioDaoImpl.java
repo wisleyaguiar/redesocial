@@ -46,5 +46,14 @@ public class UsuarioDaoImpl implements UsuarioDao {
 		Query query = em.createNamedQuery(jpql);
 		return query.getResultList();
 	}
+	
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Usuario> buscarTodosOrdenadoPorNome() {
+		// TODO Auto-generated method stub
+		String jpql = "SELECT x FROM Usuario x ORDER BY x.nome";
+		Query query = em.createNamedQuery(jpql);
+		return query.getResultList();
+	}
 
 }
